@@ -1,2 +1,2 @@
 cd selenium-demo
-mvn test
+mvn clean test
