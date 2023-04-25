@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
@@ -76,7 +77,8 @@ public class OrangeHRM_TestNG {
 		// Add Chrome start with maximized
 		options.addArguments("--start-maximized");
 		// Initialize Chrome driver
-		driver = new ChromeDriver(options);
+		//driver = new ChromeDriver(options);
+		driver= new FirefoxDriver();
 		// Set default driver wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
