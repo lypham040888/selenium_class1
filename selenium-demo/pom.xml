@@ -3,6 +3,34 @@
 	<groupId>selenium-demo</groupId>
 	<artifactId>selenium-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>testng_loginoop.xml</suiteXmlFile>
+							<suiteXmlFile>testng_normal.xml</suiteXmlFile>
+						</suiteXmlFiles>
+						<reportsDirectory>${project.build.outputDirectory}</reportsDirectory>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.11.0</version>
+					<configuration>
+						<!-- put your configurations here -->
+						<source>11</source>
+						<target>11</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
