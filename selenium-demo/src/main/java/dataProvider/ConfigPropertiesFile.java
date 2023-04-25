@@ -3,10 +3,15 @@ package dataProvider;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
+
+import com.google.common.io.Files;
 
 public class ConfigPropertiesFile {
 	private static Properties properties = new Properties();
@@ -39,18 +44,6 @@ public class ConfigPropertiesFile {
 		} else {
 			throw new RuntimeException(key + " is not specified in the Configuration.properties file.");
 		}
-	}
-
-	// Get Properties value by key
-	public Iterator<Object[]> getListProperties(String key) {
-		List<Object[]> list = new ArrayList<>();
-		String value = properties.getProperty(key);
-		if (value != null) {
-			list.add(new Object[]{ key, value });
-		} else {
-			throw new RuntimeException(key + " is not specified in the Configuration.properties file.");
-		}
-		return list.iterator();
 	}
 
 }

@@ -27,8 +27,13 @@ public class TestChangeLogo {
 	ConfigPropertiesFile pros = new ConfigPropertiesFile();
 
 	@DataProvider(name = "images")
-	public Iterator<Object[]> testData() throws IOException {
-		return pros.getListProperties("validImage");
+	public Iterator<Object[]> testValidData() throws IOException {
+		List<Object[]> list = new ArrayList<>();
+
+		list.add(new Object[] { "validImage", pros.getProperties("validImage") });
+		list.add(new Object[] { "validImage2", pros.getProperties("validImage2") });
+
+		return list.iterator();
 	}
 
 	@Test(priority = 1)
