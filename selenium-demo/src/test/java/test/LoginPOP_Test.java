@@ -23,8 +23,7 @@ public class LoginPOP_Test {
 
 	@BeforeMethod
 	void setup() throws InterruptedException {
-		//driver = new ChromeDriver();
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		driver.get("https://autotest.jmaster.io/");
