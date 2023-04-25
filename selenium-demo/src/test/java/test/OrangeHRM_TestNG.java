@@ -77,8 +77,7 @@ public class OrangeHRM_TestNG {
 		// Add Chrome start with maximized
 		options.addArguments("--start-maximized");
 		// Initialize Chrome driver
-		//driver = new ChromeDriver(options);
-		driver= new FirefoxDriver();
+		driver = new ChromeDriver(options);
 		// Set default driver wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
