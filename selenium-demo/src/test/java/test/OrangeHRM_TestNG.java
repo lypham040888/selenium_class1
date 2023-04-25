@@ -72,7 +72,7 @@ public class OrangeHRM_TestNG {
 		// Setup Chrome Options
 		ChromeOptions options = new ChromeOptions();
 		// Add Chrome incognito mode
-		options.addArguments("-incognito");
+		//options.addArguments("-incognito");
 		// Add Chrome start with maximized
 		options.addArguments("--start-maximized");
 		// Initialize Chrome driver
