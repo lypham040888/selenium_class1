@@ -24,14 +24,17 @@ import org.testng.annotations.AfterTest;
 public class TestChangeLogo {
 	WebDriver driver;
 	LoginPage2 lp2;
+	MyInfo myInfo ;
 	ConfigPropertiesFile pros = new ConfigPropertiesFile();
 
 	@DataProvider(name = "images")
 	public Iterator<Object[]> testValidData() throws IOException {
 		List<Object[]> list = new ArrayList<>();
 
-		list.add(new Object[] { "validImage", pros.getProperties("validImage") });
-		list.add(new Object[] { "validImage2", pros.getProperties("validImage2") });
+		list.add(new Object[] { "TestData1", pros.getProperties("TestData1") });
+		// list.add(new Object[] { "TestData2", pros.getProperties("TestData2") });
+		// list.add(new Object[] { "TestData3", pros.getProperties("TestData3") });
+		list.add(new Object[] { "File type not allowed", pros.getProperties("TestData4") });
 
 		return list.iterator();
 	}
@@ -48,13 +51,22 @@ public class TestChangeLogo {
 		Assert.assertEquals(driver.getTitle(), "OrangeHRM");
 
 	}
+	
+	@Test(priority = 2)
+	public void modifiedInfo()
+	{
+		myInfo = new MyInfo(driver);
+		myInfo.SaveInfo();
+		
+	}
 
-	@Test(priority = 2, dataProvider = "images")
+	@Test(priority = 3, dataProvider = "images")
 	public void upLoadLogo(String key, String filename) throws InterruptedException {
-		MyInfo myInfo = new MyInfo(driver);
+		myInfo = new MyInfo(driver);
 		myInfo.clickLogoIcon();
 		myInfo.clickSelectImage(filename);
-		myInfo.Save();
+		myInfo.SaveUploadImage();
+		myInfo.validateUpload(key);
 
 	}
 
